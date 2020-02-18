@@ -3,7 +3,7 @@ $.ajax({
     type: 'get',
     url: 'http://localhost:8080/api/v1/index/rank',
     success: function (response) {
-        console.log(response);
+        // console.log(response);
 
         var weekTpl = `
 {{each data}}

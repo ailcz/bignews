@@ -55,27 +55,9 @@
 
   <div class="main_con clearfix">
     <div class="left_con">
-      <ul class="focus_list">
-        <li class="first">
-          <a href="#"><img src="images/pic01.jpg" alt=""></a>
-          <p>图片说明</p>
-        </li>
-        <li>
-          <a href="#"><img src="images/pic02.jpg" alt=""></a>
-          <p>图片说明图片说明图片说明图片说明图片说明图片说明图片说明图片说明图片说明</p>
-        </li>
-        <li>
-          <a href="#"><img src="images/pic03.jpg" alt=""></a>
-          <p>图片说明</p>
-        </li>
-        <li>
-          <a href="#"><img src="images/pic05.jpg" alt=""></a>
-          <p>图片说明</p>
-        </li>
-        <li>
-          <a href="#"><img src="images/pic06.jpg" alt=""></a>
-          <p>图片说明</p>
-        </li>
+      <!-- 热点图 -->
+      <ul class="focus_list" id="focusBox">
+
       </ul>
 
       <div class="common_title">
@@ -159,7 +141,7 @@
   <script src="./js/newestNews.js"></script>
   <script src="./admin/js/myjs/test.js"></script>
   <script src="./js/focus.js"></script>
-
+  <script src="./js/hotpic.js"></script>
   <!-- 最新资讯展示模板 -->
   <script type="text/html" id="newsetTpl">
         {{each data}}
@@ -177,10 +159,15 @@
         </div>
         {{/each}}
   </script>
-  <!-- index 代码 -->
-  <script>
+  <!-- 热点图展示模板 -->
+  <script type="text/html" id="focusTpl">
+    {{each data}}
+        <li>
+          <a href="/article.html?id={{$value.id}}"><img src="{{$value.cover}}" alt=""></a>
+          <p>{{$value.title}}</p>
+        </li>
+    {{/each}}
   </script>
-
 </body>
 
 </html>
