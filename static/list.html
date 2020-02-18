@@ -12,6 +12,8 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+  <script src="./admin/js/template-web.js"></script>
+  <script src="./js/focus.js"></script>
 </head>
 
 <body>
@@ -31,23 +33,12 @@
     <div class="menu">
       <div class="menu_collapse fl">
         <a href="javascript:;" class="level_one"><i class="fa fa-list-ul"></i>全部分类</a>
-        <ul class="level_two">
-          <li class="up"></li>
-          <li><a href="#">最 新</a></li>
-          <li><a href="#">科 技</a></li>
-          <li><a href="#">股 市</a></li>
-          <li><a href="#">商 品</a></li>
-          <li><a href="#">外 汇</a></li>
-          <li><a href="#">公 司</a></li>
+        <ul class="level_two" id="postBox">
+
         </ul>
       </div>
-      <ul class="left_menu fl">
-        <li><a href="#">最 新</a></li>
-        <li><a href="#">科 技</a></li>
-        <li><a href="#">股 市</a></li>
-        <li><a href="#">商 品</a></li>
-        <li><a href="#">外 汇</a></li>
-        <li><a href="#">公 司</a></li>
+      <ul class="left_menu fl" id="postsBox">
+
       </ul>
       <ul class="right_menu fr">
         <li><a href="#">科技专题</a></li>
@@ -152,14 +143,8 @@
     <div class="right_con setfl">
       <div class="common_wrap">
         <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
-        <ul class="content_list">
-          <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
-          <li><span class="second">2</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><span class="third">3</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><span>4</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><span>5</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><span>6</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+        <ul class="content_list" id="weekBox">
+
         </ul>
       </div>
       <div class="common_wrap">
@@ -199,14 +184,8 @@
       </div>
       <div class="common_wrap">
         <h3><i class="fa fa-bullseye"></i> 焦点关注</h3>
-        <ul class="content_list guanzhu_list">
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-          <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+        <ul class="content_list guanzhu_list" id="jiaodian">
+
         </ul>
       </div>
     </div>
@@ -225,7 +204,9 @@
     <p>CopyRight © 2019 深圳大事件信息技术股份有限公司 All Rights Reserved</p>
     <p>电话：0755-****888 粤ICP备*******8号</p>
   </div>
-
+  <script src="./js/template-web.js"></script>
+  <script src="./js/hot.js"></script>
+  <script src="./js/category.js"></script>
 </body>
 
 </html>
