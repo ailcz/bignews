@@ -28,23 +28,12 @@
     <div class="menu">
       <div class="menu_collapse fl">
         <a href="javascript:;" class="level_one"><i class="fa fa-list-ul"></i>全部分类</a>
-        <ul class="level_two">
-          <li class="up"></li>
-          <li><a href="#">最 新</a></li>
-          <li><a href="#">科 技</a></li>
-          <li><a href="#">股 市</a></li>
-          <li><a href="#">商 品</a></li>
-          <li><a href="#">外 汇</a></li>
-          <li><a href="#">公 司</a></li>
+        <ul class="level_two" id="postBox">
+
         </ul>
       </div>
-      <ul class="left_menu fl">
-        <li><a href="#">最 新</a></li>
-        <li><a href="#">科 技</a></li>
-        <li><a href="#">股 市</a></li>
-        <li><a href="#">商 品</a></li>
-        <li><a href="#">外 汇</a></li>
-        <li><a href="#">公 司</a></li>
+      <ul class="left_menu fl" id="postsBox">
+
       </ul>
       <ul class="right_menu fr">
         <li><a href="#">科技专题</a></li>
@@ -170,14 +159,12 @@
 
       <p>{{data.content}}</p>
 
-     
-
     </div>
     <div class="article_links">
       {{if data.prev}}
       上一篇： <a href="article.html?id={{data.prev.id}}">{{data.prev.title}}</a><br>
       {{/if}}
-      
+     
       {{if data.next}}
       下一篇： <a href="article.html?id={{data.next.id}}">{{data.next.title}}</a>
       {{/if}}
@@ -197,16 +184,13 @@
         {{$value.content}}
       </div>
     </div>
-
     {{/each}}
 
   </script>
 
   <script src="./js/focus.js"></script>
+  <script src="./js/category.js"></script>
   <!-- 文章页面的 js 代码  -->
-  <script>
-
-  </script>
 </body>
 
 </html>
