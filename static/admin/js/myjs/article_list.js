@@ -9,15 +9,14 @@ $.ajax({
     }
 })
 
+console.log(location.search.substr(1));
 
 // 获取文章信息
 $.ajax({
     type: 'get',
     url: 'http://localhost:8080/api/v1/admin/article/query',
-
+    data: '',
     success: function (response) {
-        console.log(response);
-
         var html = template('listsTpl', response);
         $('#listsBox').html(html);
     }
@@ -27,23 +26,38 @@ $.ajax({
 $.ajax({
     type: 'get',
     url: 'http://localhost:8080/api/v1/admin/article/query',
+    data: location.search.substr(1),
     success: function (response) {
         var html = template('listsTpl', response);
         $('#listsBox').html(html);
         var page = template('pageTpl', response);
         $('#page').html(page);
-        // console.log(response);
+
+
     }
 });
 
 // 筛选按钮注册事件
 $('#listForm').on('submit', function () {
     var obj = {};
-    if ($('#selCategory').val() != -1) {
-        obj.type = $('#selCategory').val();
+    var type = $('#selCategory').val();
+    var state = $('#selStatus').val();;
+    if (type != -1) {
+
+        obj.type = type;
     }
-    if ($('#selStatus').val() != -1) {
-        obj.state = $('#selStatus').val();
+
+    if (type == -1) {
+        obj.type = '';
+        type = '';
+    }
+    if (state != -1) {
+        obj.state = state;
+    }
+
+    if (state == -1) {
+        obj.state = '';
+        state = '';
     }
     console.log(obj);
     $.ajax({
@@ -51,14 +65,18 @@ $('#listForm').on('submit', function () {
         url: 'http://localhost:8080/api/v1/admin/article/query',
         data: obj,
         success: function (response) {
+            console.log(response);
+
             // 重新渲染文章和分页数据
             var html = template('listsTpl', response);
             $('#listsBox').html(html);
             var page = template('pageTpl', response);
             $('#page').html(page);
+            location.search = 'state' + state + '&type=' + type;
         }
     });
     // 阻止表单默认提交行为
+
     return false;
 })
 
@@ -96,12 +114,28 @@ function getArr(num) {
 
 // 分页函数
 function changePage(p) {
+
+    var obj = {};
+    obj.page = p;
+    var strArr = location.search.substr(1).split('&');
+    for (var i = 0; i < strArr.length; i++) {
+
+        var newArr = strArr[i].split('=');
+        if (newArr[0] == 'state') {
+            obj.state = newArr[1]
+
+        };
+
+        if (newArr[0] == 'type') {
+            obj.type = newArr[1]
+        };
+
+    }
+
     $.ajax({
         type: 'get',
         url: 'http://localhost:8080/api/v1/admin/article/query',
-        data: {
-            page: p
-        },
+        data: obj,
         success: function (response) {
 
 
