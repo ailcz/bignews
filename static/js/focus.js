@@ -30,15 +30,27 @@ $.ajax({
         {{each data}}
         <li>
             <span>{{$value.author.substring(0,1)}}</span>
-            <b><em>{{$value.author}}</em> ({{$value.date}})说:</b>
+            <b><em>{{$value.author}}</em> {{$imports.Time.human((new $imports.Date($value.date)))}}说:</b>
             <strong>{{$value.intro}}</strong>
           </li>
           {{/each}}
         `
         var html = template.render(zixunTpl, response);
-        console.log(html);
         $('#pinglun').html(html)
     }
+})
+
+// 前台首页文章点击搜索按钮，传输搜索内容
+$('#searchBtn').on('click', function () {
+
+    // 获取输入内容
+    var text = $('#serachInpt').val();
+    if (text.trim().length !== 0) {
+
+
+        location.href = 'postSearch.html?keyValue=' + text;
+    }
+
 })
 
 

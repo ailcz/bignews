@@ -8,7 +8,8 @@ $.ajax({
     success: function (response) {
 
         var html = template('postTpl', response);
-        $('#postBox').html(html);
+        $('#articleBox').html(html);
+
 
     }
 })

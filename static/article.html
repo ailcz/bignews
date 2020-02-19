@@ -15,8 +15,8 @@
   <div class="header">
     <a href="#" class="logo fl"><img src="images/logo.png" alt="logo"></a>
     <div class="search_form fl">
-      <input type="text" class="search_txt" placeholder="黑洞照片">
-      <button class="search_btn"><i class="fa fa-search"></i></button>
+      <input type="text" class="search_txt" placeholder="黑洞照片" id="serachInpt">
+      <button class="search_btn" id="searchBtn"><i class="fa fa-search"></i></button>
     </div>
     <div class="link_info fr">
       <a href="#"><i class="fa fa-angle-right"></i>&nbsp;&nbsp;网站地图</a><br>
@@ -44,7 +44,7 @@
 
   <div class="main_con clearfix">
     <div class="left_con setfr">
-      <div id="postBox">
+      <div id="articleBox">
 
 
 
@@ -150,7 +150,7 @@
     {{each data}}
     <div class="comment_detail_list">
       <div class="person_pic fl">{{$value.author.substr(0,1)}}</div>
-      <div class="name_time fl"><b>{{$value.author}}</b><span>{{$value.time}}</span></div>
+      <div class="name_time fl"><b>{{$value.author}}</b><span>{{$imports.Time.human((new $imports.Date( $value.date+' '+$value.time)))}}</span></div>
       <div class="comment_text fl">
         {{$value.content}}
       </div>
@@ -158,9 +158,10 @@
     {{/each}}
 
   </script>
-
+  <script src="./js/time.js"></script>
   <script src="./js/focus.js"></script>
   <script src="./js/category.js"></script>
+  <script src="./js/searchPost.js"></script>
   <!-- 文章页面的 js 代码  -->
 </body>
 
