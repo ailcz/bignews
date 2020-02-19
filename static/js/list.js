@@ -3,7 +3,7 @@ var categoryId = getParams('id');
 // 根据文章类型id获取，该类型下所有的文章
 $.ajax({
     type: 'get',
-    url: 'http://localhost:8080/api/v1/admin/article/query',
+    url: 'http://localhost:8080/api/v1/index/search',
     data: { type: categoryId },
     success: function (response) {
 
