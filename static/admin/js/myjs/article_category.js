@@ -29,6 +29,7 @@ $.ajax({
     }
 });
 
+
 $('#categoryBox').on('click', '.edit', function () {
     // 获取要修改的分类数据的id
     var id = $(this).attr('data-id');
@@ -47,7 +48,7 @@ $('#categoryBox').on('click', '.edit', function () {
     })
 });
 
-
+// 注册表单提交事件
 $('#formBox').on('submit', '#modifyCategory', function () {
     alert('ok')
     // 获取管理员在表单中输入的内容
