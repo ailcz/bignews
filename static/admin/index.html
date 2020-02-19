@@ -85,9 +85,9 @@
   </div>
 
   <div class="header_bar">
-    <form class="search_form">
-      <input type="text" placeholder="请输入搜索内容">
-      <i class="iconfont icon-search"></i>
+    <form class="search_form" id="formBox">
+      <input type="text" id="search" placeholder="请输入搜索内容">
+      <i class="iconfont icon-search" id="icon-search"></i>
     </form>
 
     <div class="user_center_link">
@@ -125,6 +125,8 @@
 
   <script src="js/jquery-1.12.4.min.js"></script>
   <script src="./js/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./js/template-web.js"></script>
+  <script src="./js/myjs/search.js"></script>
   <script>
     var $level01 = $('.level01');
     var $subli = $('.level02 li')
@@ -179,6 +181,16 @@
   <script src="./js/myjs/common.js"></script>
   <!-- 业务逻辑代码 -->
   <script>
+    //搜索功能
+    $("#icon-search").on("click", function () {
+      var search = $("#search").val();
+      if (search.trim() == "") {
+        alert("请输入搜索内容！");
+        return false;
+      }
+      // 给下面的大盒子添加一个地址跳转到文章列表页面并加上关键词
+      $('iframe').prop('src', 'article_list.html?key=' + search);
+    });
 
   </script>
 </body>
