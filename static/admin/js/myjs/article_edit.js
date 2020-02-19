@@ -30,8 +30,6 @@ $.ajax({
         }
 
     }
-
-
 })
 //文件上传
 $('#modifyBox').on('change', '#exampleInputFile', function () {

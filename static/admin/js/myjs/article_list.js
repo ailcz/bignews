@@ -11,7 +11,6 @@ $.ajax({
 
 
 // 获取文章信息
-
 $.ajax({
     type: 'get',
     url: 'http://localhost:8080/api/v1/admin/article/query',
