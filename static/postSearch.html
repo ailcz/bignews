@@ -126,8 +126,8 @@
     <script type="text/html" id="postsearchTpl">
         {{each data.data}}
         <div class="common_news_list">
-            <a href="#" class="list_pic"><img src="{{$value.cover}}" alt=""></a>
-            <h4><a href="#">{{$value.title}}</a></h4>
+            <a href="article.html?id={{$value.id}}" class="list_pic"><img src="{{$value.cover}}" alt=""></a>
+            <h4><a href="article.html?id={{$value.id}}">{{$value.title}}</a></h4>
             <p>
                 {{$value.content}}
             </p>
