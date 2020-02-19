@@ -130,6 +130,10 @@ function changePage(p) {
             obj.type = newArr[1]
         };
 
+        if (newArr[0] == 'key') {
+            obj.key = newArr[1]
+        };
+
     }
 
     $.ajax({

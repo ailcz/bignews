@@ -6,12 +6,12 @@ $.ajax({
     // console.log(data);
     var leftTpl = `
         {{each data}}
-        <li><a href="/list.html?id={{$value.id}}">{{$value.name}}</a></li>
+        <li><a href="list.html?id={{$value.id}}">{{$value.name}}</a></li>
       {{/each}}
     `;
     var middleTpl = `
         {{each data}}
-        <li><a href="/list.html?id={{$value.id}}">{{$value.name}}</a></li>
+        <li><a href="list.html?id={{$value.id}}">{{$value.name}}</a></li>
       {{/each}}
     `
     var html = template.render(leftTpl, { data: data.data });

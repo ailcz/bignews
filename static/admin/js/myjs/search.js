@@ -20,7 +20,9 @@ $.ajax({
         console.log(response);
         var html = template('listsTpl', response);
         $('#listsBox').html(html);
-        location.search = 'state' + state + '&type=' + type;
+        // location.search = 'state=' + state + '&type=' + type + '&key=' + key;
+        console.log(location.search);
+
         //分页展示
         // var page = template('pageTpl', { data: response.data })
 

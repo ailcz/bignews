@@ -96,7 +96,7 @@
     <li class="page-item prev disabled"><a href="#" class="page-link" onclick="changePage({{data.page - 1}})">上一页</a></li>
     {{/if}}
     {{each $imports.getArr(data.pages)}}
-    <li class="page-item active"><a href="#" class="page-link" onclick="changePage({{$value}})">{{$value}}</a></li>
+    <li class="page-item"><a href="#" class="page-link" onclick="changePage({{$value}})">{{$value}}</a></li>
     {{/each}}
     {{if data.page<data.totalPage}}
     <li class="page-item next"><a href="#" class="page-link" onclick="changePage({{data.page-0+1}})">下一页</a></li>
