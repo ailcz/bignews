@@ -10,6 +10,8 @@ $.ajax({
         var html = template('commentsTpl', response);
         // console.log(html);
         $('#commentBox').html(html)
+
+
         var pageHTML = template('pageTpl', response);
 
 
@@ -68,3 +70,32 @@ $('#commentBox').on('click', '.delete', function () {
         })
     }
 })
+
+// 把page转化为数组
+function getArr(num) {
+    var arr = [];
+    for (var i = 1; i <= num; i++) {
+        arr.push(i);
+    }
+    return arr;
+}
+// 分页函数
+function changePage(page) {
+    // alert(page)
+    $.ajax({
+        type: 'get',
+        url: 'http://localhost:8080/api/v1/admin/comment/search',
+        data: {
+            page: page
+        },
+        success: function (response) {
+            // console.log(response)
+            var html = template('commentsTpl', response);
+            // console.log(html);
+            $('#commentBox').html(html)
+            var pageHTML = template('pageTpl', response);
+            $('#pageBox').html(pageHTML);
+
+        }
+    })
+}

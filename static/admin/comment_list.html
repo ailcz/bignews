@@ -91,17 +91,17 @@
 
   <!-- 分页模板 -->
   <script type="text/html" id="pageTpl">
-    <li><a href="javascript:;" onclick="changePage({{page=1}})">首页</a></li>
-    {{if page > 1}}
-    <li><a href="javascript:;" onclick="changePage({{page - 1}})">上一页</a></li>
+    <li class="page-item first {{data.page == 1 ? 'disabled' : ''}}"><a href="#" class="page-link" onclick="changePage(1)">首页</a></li>
+    {{if data.page>1}}
+    <li class="page-item prev disabled"><a href="#" class="page-link" onclick="changePage({{data.page - 1}})">上一页</a></li>
     {{/if}}
-    {{each display}}
-    <li><a href="javascript:;" onclick="changePage({{$value}})">{{$value}}</a></li>
+    {{each $imports.getArr(data.pages)}}
+    <li class="page-item active"><a href="#" class="page-link" onclick="changePage({{$value}})">{{$value}}</a></li>
     {{/each}}
-    {{if page < totalPage}}
-    <li><a href="javascript:;" onclick="changePage({{page + 1}})">下一页</a></li>
+    {{if data.page<data.totalPage}}
+    <li class="page-item next"><a href="#" class="page-link" onclick="changePage({{data.page-0+1}})">下一页</a></li>
     {{/if}}
-    <li><a href="javascript:;" onclick="changePage({{page=totalPage}})">首页</a></li>
+    <li class="page-item last"><a href="#" class="page-link" onclick="changePage({{data.totalPage}})">尾页</a></li>
 </body>
 
 </html>
