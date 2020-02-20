@@ -1,5 +1,5 @@
 // 获取搜索关键字
-var text = getParams('keyValue');
+var text = decodeURI(getParams('keyValue'));
 
 // 通过关键字查询相关文章
 $.ajax({
