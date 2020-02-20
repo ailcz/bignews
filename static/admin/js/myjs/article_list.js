@@ -151,3 +151,52 @@ function changePage(p) {
         }
     })
 }
+// 文章列表跳转分页
+$('#page').on('change', '#aaaa', function () {
+
+
+    console.log(1);
+
+
+    var obj = {};
+    obj.page = $('#aaaa option:selected').val();
+
+
+    var strArr = location.search.substr(1).split('&');
+    for (var i = 0; i < strArr.length; i++) {
+
+        var newArr = strArr[i].split('=');
+        if (newArr[0] == 'state') {
+            obj.state = newArr[1]
+
+        };
+
+        if (newArr[0] == 'type') {
+            obj.type = newArr[1]
+        };
+
+        if (newArr[0] == 'key') {
+            obj.key = newArr[1]
+        };
+
+    }
+
+    $.ajax({
+        type: 'get',
+        url: 'http://localhost:8080/api/v1/admin/article/query',
+        data: obj,
+        success: function (response) {
+
+
+            var html = template('listsTpl', response);
+            $('#listsBox').html(html);
+            var page = template('pageTpl', response);
+            $('#page').html(page);
+
+        }
+    })
+
+})
+
+
+

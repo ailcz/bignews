@@ -49,6 +49,59 @@ $('#commentBox').on('click', '.jujue', function () {
 });
 
 
+// 评论分页跳转
+$('#pageBox').on('change', '#aaaa', function () {
+
+
+
+
+
+    var obj = {};
+    obj.page = $('#aaaa option:selected').val();
+
+
+    // var strArr = location.search.substr(1).split('&');
+    // for (var i = 0; i < strArr.length; i++) {
+
+    //     var newArr = strArr[i].split('=');
+    //     if (newArr[0] == 'state') {
+    //         obj.state = newArr[1]
+
+    //     };
+
+    //     if (newArr[0] == 'type') {
+    //         obj.type = newArr[1]
+    //     };
+
+    //     if (newArr[0] == 'key') {
+    //         obj.key = newArr[1]
+    //     };
+
+    // }
+
+    $.ajax({
+        type: 'get',
+        url: 'http://localhost:8080/api/v1/admin/comment/search',
+        data: obj,
+        success: function (response) {
+
+
+            var html = template('commentsTpl', response);
+            // console.log(html);
+            $('#commentBox').html(html)
+
+
+            var pageHTML = template('pageTpl', response);
+
+
+            $('#pageBox').html(pageHTML);
+
+        }
+    })
+
+})
+
+
 
 
 

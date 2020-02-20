@@ -108,13 +108,21 @@
     {{if data.page > 1}}
     <li class="page-item prev {{page == 1 ? 'disabled':''}}"><a href="javascript:;" class="page-link" onclick="changePage({{data.page-1}})">上一页</a></li>
     {{/if}}
-    {{each $imports.getArr(data.pages)}}
+    
+    <!-- {{each $imports.getArr(data.pages)}}
     <li class="page-ite"><a href="javascript:;" class="page-link" onclick="changePage({{$value}})">{{$value}}</a></li>
-    {{/each}}
+
+    {{/each}} -->
     {{if data.page < data.pages}}
     <li class="page-item next"><a href="javascript:;" class="page-link" onclick="changePage({{data.page+1}})">下一页</a></li>
     {{/if}}
-    <li class="page-item last"><a href="javascript:;" class="page-link" onclick="changePage({{data.pages}})">尾页</a></li>  
+    <li class="page-item last"><a href="javascript:;" class="page-link" onclick="changePage({{data.pages}})">尾页</a></li>
+    <select id="aaaa">
+      {{each $imports.getArr(data.pages)}}
+        <option value="{{$value}}">{{$value}}</option>
+        {{/each}}
+    </select>
+  
   </script>
 
   <script>
